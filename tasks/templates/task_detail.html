@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h1 style="text-align: center; padding-top: 20px; font-weight: 400; color: rgb(199 199 199);">DATOS</h1>
+
+            {{error}}
+            
+            <div style="padding-top: 10px;">
+                <form method="POST" class="card card-body" style="background: rgb(50 108 103 / 12%);">
+                    <div style="color: rgb(199 199 199);">
+                        {% csrf_token %}
+                        {{form.as_p}}                        
+                    </div>
+
+                    <button class="btn btn-dark mx-auto" style="width: 300px;">
+                        <span style="color: white;">Actualizar</span>
+                    </button>
+
+                    <h1></h1>
+
+                    <div class="d-grid gap-2 mx-auto" style="width: 300px;">
+
+                        <form action="{% url 'tasks' %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-success">
+                                Atras
+                            </button>
+                        </form>
+                    
+                        <form class="d-grid gap-2 mx-auto" style="width: 300px;" action="{% url 'complete_task' task.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-dark">
+                                Completar
+                            </button>
+                        </form>
+
+                        <form class="d-grid gap-2 mx-auto" style="width: 300px;" action="{% url 'delete_task' task.id %}" method="POST">
+                            {% csrf_token %}
+                            <button class="btn btn-danger">
+                                Eliminar
+                            </button>
+                        </form>
+
+                    </div>
+
+                </form>
+    
+                
+            </div>
+
+            
+        </div>
+    </div>
+</main>
+
+{% endblock %}

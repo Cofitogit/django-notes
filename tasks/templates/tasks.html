@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-8">
+            <h1 class="text-center display-5" Style="color:azure;"></h1>
+
+            <ul class="list-group py-5">
+                {% for task in tasks %}
+                <a class="list-group-item" href="{% url 'task_detail' task.id %}"
+                    style="background: rgb(50 108 103 / 12%)">
+                    <header class="d-flex justify-content-between">
+                        {% if task.important %}
+                        <h1 class="fw-bold text-success" style="font-size: x-large;">{{task.title}}</h1>
+                        {% else %}
+                        <h1 class="fw-bold" style="font-size: x-large; color: rgb(192, 192, 192);">{{task.title}}</h1>
+                        {% endif %}
+                        <p style="font-weight: 500;">
+                            <style>
+                                a:hover {
+                                    color: rgb(25, 135, 84);
+                                }
+                            </style>
+                            {{task.user.username}}
+                        </p>
+                    </header>
+
+                    <p style="color: rgb(180, 180, 180);">{{task.description}}</p>
+
+
+                    <p>{{task.datecompleted|date:'M j Y h:i A'}}</p>
+                </a>
+                {% endfor %}
+            </ul>
+
+        </div>
+        <div class="col"></div>
+    </div>
+</main>
+
+{% endblock %}

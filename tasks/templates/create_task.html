@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 mt-5">
+            <form action="/tasks/create/" method="POST" class="card card-body" style="background: rgb(50 108 103 / 12%);">
+
+                <h1  class="border-bottom border-light border-1" style="color: rgb(199 199 199); font-weight: 300; font-size: x-large; text-align: center; margin-inline: 20px; margin-bottom: 10px;"><span>CREAR TAREA</span></h1>
+
+                {{error}}
+
+                {% csrf_token %}
+                <div style="color: rgb(199 199 199); padding: 10px;">
+                    {{form.as_p}}  
+                </div>
+        
+                <h1></h1>
+                <button class="btn btn-dark">
+                    Guardar
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

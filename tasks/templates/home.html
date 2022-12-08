@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+
+
+
+<main class="container py-5">
+  <section class="card card-body" style="background: rgb(50 108 103 / 12%)">
+    <h1
+      class="display-5 text-center"
+      style="color: rgb(25, 135, 84); font-weight: 400; margin-bottom: 20px"
+    >
+      Menu principal
+    </h1>
+    <p
+      style="
+        color: rgb(180, 180, 180);
+        margin-bottom: 10px;
+        padding-right: 40px;
+        padding-left: 40px;
+        text-align: center;
+      "
+    >
+      Practicando desarrollar un proyecto basado en crear y eliminar tareas utilizando Django.
+    </p>
+
+    <div class="text-center">
+      <a class="btn btn-secondary" href="/signin/"> Iniciar sesión </a>
+      <a class="btn btn-dark" href="/signup/"> Crear cuenta </a>
+    </div>
+  </section>
+</main>
+
+{% endblock %}
